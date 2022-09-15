@@ -173,7 +173,7 @@ def pregunta_10():
 
     copia["_c2"] = copia["_c2"].astype(str)
 
-    return copia.groupby("_c1")["_c2"].agg(lambda x: ":".join(sorted(x)))
+    return pd.DataFrame(copia.groupby("_c1")["_c2"].agg(lambda x: ":".join(sorted(x))))
 
 
 def pregunta_11():
@@ -192,7 +192,7 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return tbl1.groupby("_c0")["_c4"].agg(lambda x: ",".join(sorted(x)))
+    return pd.DataFrame(tbl1.groupby("_c0")["_c4"].agg(lambda x: ",".join(sorted(x)))).reset_index()
 
 
 def pregunta_12():
@@ -218,7 +218,7 @@ def pregunta_12():
 
     copia["_c5"] = copia["_c5a"] + ":" + copia["_c5b"]
 
-    return copia.groupby("_c0")["_c5"].agg(lambda x: ",".join(x))
+    return pd.DataFrame(copia.groupby("_c0")["_c5"].agg(lambda x: ",".join(x))).reset_index()
 
 
 def pregunta_13():
